@@ -30,9 +30,6 @@ app.use((req, res, next) => {
     next()
 })
 
-
-
-
 // ROUTES
 
 // Index
@@ -41,6 +38,11 @@ app.get('/chocolates', (req, res) => {
       res.render('Index', {chocolates: allChocoalte})
   })
 })
+
+// New
+app.get('/chocolates/new', (req, res) => {
+  res.render('New');
+});
 
 
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`))
