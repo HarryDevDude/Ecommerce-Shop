@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 const method = require('method-override');
 const app = express();
 const PORT = 3000
-const Chocoalte = require('./models/chocolate');
 const Chocolate = require('./models/chocolate');
 
 
@@ -34,8 +33,8 @@ app.use((req, res, next) => {
 
 // Index
 app.get('/chocolates', (req, res) => {
-  Chocoalte.find({}, (err, allChocoalte) => {
-    res.render('Index', { chocolates: allChocoalte })
+  Chocolate.find({}, (err, allChocolate) => {
+    res.render('Index', { chocolates: allChocolate })
   })
 })
 
@@ -45,10 +44,10 @@ app.get('/chocolates/new', (req, res) => {
 });
 
 // Delete
-app.delete('/chocoaltes/:id', (req, res) => {
+app.delete('/chocolates/:id', (req, res) => {
   Chocolate.findByIdAndDelete(req.params.id, (err) => {
     if (!err) {
-      res.status(200).redirect('/chocoaltes')
+      res.status(200).redirect('/chocolates')
     }
     else {
       res.status(400).json(err)
@@ -57,10 +56,10 @@ app.delete('/chocoaltes/:id', (req, res) => {
 })
 
 // Update
-app.put('/chocoaltes/:id', (req, res) => {
-  Chocoalte.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedChocolate) => {
+app.put('/chocolates/:id', (req, res) => {
+  Chocolate.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedChocolate) => {
     if (!err) {
-      res.status(200).redirect('/chocoaltes')
+      res.status(200).redirect('/chocolates')
     }
     else {
       res.status(400).json(err)
@@ -71,15 +70,15 @@ app.put('/chocoaltes/:id', (req, res) => {
 
 // Create
 app.post('/chocolates', (req, res) => {
-  Chocoalte.create(req.body, (err, createdChocolate) => {
+  Chocolate.create(req.body, (err, createdChocolate) => {
     res.redirect('/chocolates')
   })
 
 })
 
 // Edit
-app.get('/chocoaltes/:id/edit', (req, res) => {
-  Chocoalte.findById(req.params.id, (err, foundChocolate) => {
+app.get('/chocolates/:id/edit', (req, res) => {
+  Chocolate.findById(req.params.id, (err, foundChocolate) => {
     if (!err) {
       res.render('Edit', { chocolate: foundChocolate })
     }
@@ -91,7 +90,7 @@ app.get('/chocoaltes/:id/edit', (req, res) => {
 
 // Show
 app.get('/chocolates/:id', (req, res) => {
-  Chocoalte.findById(req.params.id, (err, foundChocolate) => {
+  Chocolate.findById(req.params.id, (err, foundChocolate) => {
     res.render('Show', { chocolate: foundChocolate })
   })
 })

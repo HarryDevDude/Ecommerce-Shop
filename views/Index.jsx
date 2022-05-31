@@ -17,14 +17,15 @@ class Index extends React.Component {
               chocolates.map(chocolate => {
                 return (
                   <li key={chocolate._id}>
+                    <a href={`/chocolates/${chocolate._id}`}><img src={`${chocolate.img}`} alt="maybe it's tasty chocolate" /></a>
                     <p><a href={`/chocolates/${chocolate._id}`}>{chocolate.name}</a></p>
                     <p>{chocolate.description}</p>
                     <p>${chocolate.price}</p>
                     <p>There's {chocolate.quantity} quantity.</p>
-                    <form action={`/chocoaltes/$chocolate._id}?_method=DELETE`} method="POST">
+                    <form action={`/chocolates/${chocolate._id}?_method=DELETE`} method="POST">
                     <input type="submit" value="DELETE" />
                 </form>
-                    <button><a href={`/chocolates/${chocolate._id}/edit`}>{`Edit ${chocolate.name}`}</a></button>
+                    <button className="borderless"><a href={`/chocolates/${chocolate._id}/edit`}>{`Edit ${chocolate.name}`}</a></button>
                     <hr />
                   </li>
                 )

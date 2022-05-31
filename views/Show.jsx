@@ -7,15 +7,13 @@ class Show extends React.Component {
     return (
       <Layout title="Show ME Chocolate">
         <div>
+          <img src={`${chocolate.img}`}></img>
           <p>{chocolate.name}</p>
           <p>{chocolate.description}</p>
-          <p>{chocolate.price}</p>
-          <p>{chocolate.quantity}</p>
-          <button><a href={'/chocolates'}>Back</a></button>
-          <form action={`/chocolates/${chocolate._id}?_method=DELETE`} method="POST">
-                    <input type="submit" value="DELETE" />
-                </form>
-          <button><a href={`/chocolates/${chocolate._id}/edit`}>{`Edit ${chocolate.name}`}</a></button>
+          <p>Price ${chocolate.price}</p>
+          <p>Quantity:{chocolate.quantity}</p>
+          <button className="borderless"><a href={'/chocolates'}>Back</a></button>
+          <button className="borderless"><a href={`/chocolates/${chocolate._id}/edit`}>{`Edit ${chocolate.name}`}</a></button>
         </div>
       </Layout>
     )
