@@ -1,0 +1,18 @@
+body {
+  background-color: whitesmoke;
+  color: rgb(217, 167, 101);
+  font-size: 2.1em;
+}
+
+a:link, a:visited {
+  background-color: #6a3633d4;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:hover, a:active {
+  background-color: #5b1712d4;
+}
