@@ -5,6 +5,7 @@ const method = require('method-override');
 const app = express();
 const PORT = 3000
 const Chocoalte = require('./models/chocolate');
+const Chocolate = require('./models/chocolate');
 
 
 // ===== Connection to Database =====

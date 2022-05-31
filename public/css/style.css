@@ -11,8 +11,10 @@ a:link, a:visited {
   text-align: center;
   text-decoration: none;
   display: inline-block;
+  cursor: pointer;
 }
 
 a:hover, a:active {
   background-color: #5b1712d4;
+  cursor: pointer;
 }
